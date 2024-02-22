@@ -1,0 +1,93 @@
+.content {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+.calendar {
+  width: 80%;
+  height: 0;
+  max-width: 770px;
+  color: rgba(48, 87, 133);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+  .header {
+    margin-top: 20px;
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    height: 100px;
+    padding: 30px;
+    background-color: white;
+  }
+
+  table {
+    border-top: 1px dashed black;
+    padding: 10px;
+    width: 100%;
+    height: 600px;
+    max-height: 300px;
+    text-align: center;
+    background-color: white;
+
+    td {
+      vertical-align: middle;
+      text-align: -webkit-center;
+
+      .days {
+        font-size: 14px;
+        border-radius: 50%;
+        color: white;
+        font-weight: 400;
+        width: 100%;
+        color: rgba(48, 87, 133);
+        transition: 0.3s;
+        cursor: pointer;
+        height: 0; 
+        padding-top: 100%;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:hover {
+          background-color: rgb(148, 187, 233);
+          color: white;
+          font-weight: 700;
+        }
+        p {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .calendar {
+    table {
+      max-height: 400px;
+      td {
+        .days {
+          max-width: calc(100% - 25px);
+          padding-top: calc(100% - 25px);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .calendar {
+    table {
+      max-height: 600px;
+      td {
+        .days {
+          max-width: calc(100% - 25px);
+          padding-top: calc(100% - 25px);
+        }
+      }
+    }
+  }
+}
