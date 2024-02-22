@@ -1,0 +1,64 @@
+
+
+.content {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.sheet {
+    margin-top: 20px;
+    background: white;
+    height:  500px;
+    width: 80%;
+    max-width: 770px;
+    padding: 30px;
+    overflow: auto;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    h1{
+        color: rgba(48, 87, 133);
+    }
+    hr {
+        border: 1px solid rgb(148,187,233);
+    }
+    table {
+        margin: 0 auto;
+        border-collapse: collapse;
+        border-style: hidden;
+        width: 100%;
+        color: rgba(48, 87, 133);
+        border-spacing: 5px;
+        table-layout:fixed;
+        td {
+            .line-content {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            padding: 0.5rem;
+            border-top: 1px dashed rgb(148,187,233);
+            border-left: 2px solid rgb(148,187,233);
+            margin: 5px;
+            input[type="checkbox"] {
+                color: white;
+                accent-color:rgba(48, 87, 133);
+                float:right;
+            }
+        }
+        th {
+            padding: 0.5rem;
+            border: 2px solid rgb(148,187,233);
+        }
+    }
+
+}
+
+@media screen and (min-width: 768px) 
+{
+    .sheet {
+        height: 700px;
+    }
+}
