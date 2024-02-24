@@ -1,10 +1,15 @@
 <div class="content">
   <div class="calendar">
-    <div class="header">
-      <h1>Título do Mês</h1>
-      <br />
-    </div>
+    <app-calendar-sidebar></app-calendar-sidebar>
     <table>
+      <tr class="h">
+        <th colspan="7">
+          <div class="header">
+            <h1>Título do Mês</h1>
+            <br />
+          </div>
+        </th>
+      </tr>
       <ng-container *ngFor="let week of months[1]">
         <tr>
           <td *ngFor="let day of week">
