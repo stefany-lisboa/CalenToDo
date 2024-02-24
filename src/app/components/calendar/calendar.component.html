@@ -1,16 +1,16 @@
 <div class="content">
   <div class="calendar">
     <div class="header">
-      <h1>Fevereiro</h1>
+      <h1>Título do Mês</h1>
       <br />
     </div>
     <table>
-      <ng-container *ngFor="let week of calendarMonth">
+      <ng-container *ngFor="let week of months[1]">
         <tr>
           <td *ngFor="let day of week">
             <ng-container
               ><div *ngIf="day" class="days">
-                <p>{{ day }}</p>
+                <p>{{ day.getDate() }}</p>
               </div>
             </ng-container>
           </td>

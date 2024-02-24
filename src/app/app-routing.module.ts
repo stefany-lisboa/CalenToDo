@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TaskListComponent } from './task-list/task-list.component';
-import { CalendarComponent } from './calendar/calendar.component';
+import { TaskListComponent } from './components/task-list/task-list.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 const routes: Routes = [
   { path: '', component: CalendarComponent },
