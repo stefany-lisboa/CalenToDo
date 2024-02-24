@@ -20,9 +20,9 @@ export class CalendarComponent {
     this.weekLength = 7;
     this.months = [];
     this.monthsInYear = 12;
-    this.monthsConfig = Array.from({ length: 12 }, (v, k) => {
-      const firstDayOfMonth = new Date(this.year, k, 1);
-      const lastDayOfMonth = new Date(this.year, k + 1, 0);
+    this.monthsConfig = Array.from({ length: 12 }, (v, monthIndex) => {
+      const firstDayOfMonth = new Date(this.year, monthIndex, 1);
+      const lastDayOfMonth = new Date(this.year, monthIndex + 1, 0);
       return {
         monthIndex: k,
         lastDayOfMonth: lastDayOfMonth.getDate(),
@@ -40,7 +40,7 @@ export class CalendarComponent {
   mountCalendarMonth(config: CalendarConfig, monthIndex: number) {
     const arrDays: Date[] = Array.from(
       { length: config.lastDayOfMonth },
-      (v, k) => new Date(this.year, config.monthIndex, k + 1)
+      (v, dayPosition) => new Date(this.year, config.monthIndex, dayPosition + 1)
     );
     const [daysOfPreviousMonth, daysOfNextMonth] =
       this.getAdjacentDaysMonth(config);
