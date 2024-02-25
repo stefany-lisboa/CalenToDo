@@ -13,6 +13,10 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px,
     rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
 
+  .arrow-nav {
+    background: #ffe4e4;
+  }
+
   table {
     padding: 10px;
     width: 100%;
@@ -30,6 +34,13 @@
         height: 100px;
         padding: 30px;
         background-color: white;
+        justify-content: space-between;
+      }
+      .arrows {
+        cursor: pointer;
+      }
+      h1{
+        font-size: 20px;
       }
     }
 
@@ -63,6 +74,9 @@
           top: 50%;
           transform: translateY(-50%);
         }
+        .adjacentDays {
+          color: rgb(216 224 235);
+        }
       }
     }
   }
@@ -73,6 +87,11 @@
     flex-direction: row;
     table {
       max-height: 500px;
+      th {
+        h1 {
+          font-size: 25px;
+        }
+      }
       td {
         .days {
           max-width: calc(100% - 25px);
@@ -88,6 +107,11 @@
     flex-direction: row;
     table {
       max-height: 600px;
+      th {
+        h1 {
+          font-size: 25px;
+        }
+      }
       td {
         .days {
           max-width: calc(100% - 25px);

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CalendarConfig } from '../../models/CalendarConfig.model';
 
 @Component({
@@ -7,16 +7,26 @@ import { CalendarConfig } from '../../models/CalendarConfig.model';
   styleUrls: ['./calendar.component.scss'],
 })
 export class CalendarComponent {
-  public currentDate: Date;
-  public year: number;
-  public months: Date[][][];
-  public monthsConfig: CalendarConfig[];
-  public monthsInYear: number;
-  public weekLength: number;
+  @Input() date!: Date; 
+  public currentDate!: Date;
+  public year!: number;
+  public months!: Date[][][];
+  public monthIndex!: number;
+  public monthsConfig!: CalendarConfig[];
+  public monthsInYear!: number;
+  public weekLength!: number;
 
   constructor() {
-    this.currentDate = new Date(new Date().toISOString());
+  }
+  ngOnInit(): void {
+    this.setCalendarValues(this.date)
+    this.mountCalendarMonth(this.monthsConfig[0], 0);
+  }
+
+  setCalendarValues(date: Date) {
+    this.currentDate = this.date;
     this.year = this.currentDate.getFullYear();
+    this.monthIndex = this.currentDate.getMonth();
     this.weekLength = 7;
     this.months = [];
     this.monthsInYear = 12;
@@ -24,7 +34,8 @@ export class CalendarComponent {
       const firstDayOfMonth = new Date(this.year, monthIndex, 1);
       const lastDayOfMonth = new Date(this.year, monthIndex + 1, 0);
       return {
-        monthIndex: k,
+        monthTitle: firstDayOfMonth.toLocaleString('pt-BR', { month: 'long' }),
+        monthIndex: monthIndex,
         lastDayOfMonth: lastDayOfMonth.getDate(),
         firstDayOfMonthIndex: firstDayOfMonth.getDay(),
         lastDayOfMonthIndex: lastDayOfMonth.getDay(),
@@ -32,15 +43,11 @@ export class CalendarComponent {
     });
   }
 
-  ngOnInit(): void {
-    let monthIndex = 0;
-    this.mountCalendarMonth(this.monthsConfig[monthIndex], monthIndex);
-  }
-
   mountCalendarMonth(config: CalendarConfig, monthIndex: number) {
     const arrDays: Date[] = Array.from(
       { length: config.lastDayOfMonth },
-      (v, dayPosition) => new Date(this.year, config.monthIndex, dayPosition + 1)
+      (v, dayPosition) =>
+        new Date(this.year, config.monthIndex, dayPosition + 1)
     );
     const [daysOfPreviousMonth, daysOfNextMonth] =
       this.getAdjacentDaysMonth(config);
@@ -89,5 +96,21 @@ export class CalendarComponent {
       arrDays.push(new Date(date.setDate(date.getDate() + 1)));
       i--;
     }
+  }
+  isDayOfMonth(date: Date, monthIndex: number) {
+    if (date.getMonth() != monthIndex) return false;
+    return true;
+  }
+
+  capitalize = (e: string) => {
+    return e.charAt(0).toUpperCase() + e.slice(1)
+  };
+
+  getPreviousMonth(monthIndex: number) {
+    //
+  }
+
+  getNextMonth(monthIndex: number) {
+    //    
   }
 }

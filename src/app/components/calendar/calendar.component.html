@@ -2,21 +2,27 @@
   <div class="calendar">
     <app-calendar-sidebar></app-calendar-sidebar>
     <table>
-      <tr class="h">
+      <tr>
         <th colspan="7">
           <div class="header">
-            <h1>Título do Mês</h1>
-            <br />
+            <span class="material-icons arrows" (click)="getPreviousMonth(monthIndex)"> chevron_left </span>
+            <h1>{{ capitalize(monthsConfig[monthIndex].monthTitle) }}</h1>
+            <span class="material-icons arrows" (click)="getNextMonth(monthIndex)"> chevron_right </span>
           </div>
         </th>
       </tr>
-      <ng-container *ngFor="let week of months[1]">
+      <ng-container *ngFor="let week of months[monthIndex]">
         <tr>
           <td *ngFor="let day of week">
             <ng-container
-              ><div *ngIf="day" class="days">
-                <p>{{ day.getDate() }}</p>
+              ><div class="days">
+                <p *ngIf="isDayOfMonth(day, monthIndex); else adjacentDay">
+                  {{ day.getDate() }}
+                </p>
               </div>
+              <ng-template #adjacentDay>
+                <p class="adjacentDays">{{ day.getDate() }}</p>
+              </ng-template>
             </ng-container>
           </td>
         </tr>
