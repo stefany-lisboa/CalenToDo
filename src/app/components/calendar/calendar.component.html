@@ -5,8 +5,8 @@
       <tr>
         <th colspan="7">
           <div class="header">
-            <span class="material-icons arrows" (click)="getPreviousMonth(monthIndex)"> chevron_left </span>
-            <h1>{{ capitalize(monthsConfig[monthIndex].monthTitle) }}</h1>
+            <span class="material-icons arrows" (click)="getPreviousMonth(monthIndex)"> chevron_left </span>            
+            <h1>{{this.year}}<br>  {{ capitalize(monthsConfig[monthIndex].monthTitle) }}</h1>
             <span class="material-icons arrows" (click)="getNextMonth(monthIndex)"> chevron_right </span>
           </div>
         </th>

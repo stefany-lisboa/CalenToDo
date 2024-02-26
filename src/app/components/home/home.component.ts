@@ -8,6 +8,6 @@ import { Component } from '@angular/core';
 export class HomeComponent {
   public date: Date
   constructor() {
-    this.date = new Date(new Date("2024, 11, 01").toISOString());
+    this.date = new Date(new Date().toISOString());
   }
 }

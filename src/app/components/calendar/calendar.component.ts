@@ -107,10 +107,14 @@ export class CalendarComponent {
   };
 
   getPreviousMonth(monthIndex: number) {
-    //
+    this.date = new Date(this.date.setMonth(this.date.getMonth() - 1))
+    this.setCalendarValues(this.date)
+    this.mountCalendarMonth(this.monthsConfig[0], 0);     
   }
 
   getNextMonth(monthIndex: number) {
-    //    
+    this.date = new Date(this.date.setMonth(this.date.getMonth() + 1))
+    this.setCalendarValues(this.date)
+    this.mountCalendarMonth(this.monthsConfig[0], 0);     
   }
 }
