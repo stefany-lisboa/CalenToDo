@@ -1,6 +1,4 @@
-<div class="content">
-  <div class="calendar">
-    <app-calendar-sidebar></app-calendar-sidebar>
+<div class="calendar">
     <table>
       <tr>
         <th colspan="7">
@@ -8,7 +6,7 @@
             <span class="material-icons arrows" (click)="getPreviousMonth(monthIndex)"> chevron_left </span>            
             <h1>{{this.year}}<br>  {{ capitalize(monthsConfig[monthIndex].monthTitle) }}</h1>
             <span class="material-icons arrows" (click)="getNextMonth(monthIndex)"> chevron_right </span>
-          </div>
+          </div> 
         </th>
       </tr>
       <ng-container *ngFor="let week of months[monthIndex]">
@@ -29,4 +27,3 @@
       </ng-container>
     </table>
   </div>
-</div>
